@@ -1,6 +1,6 @@
 # Haste Client for pbbin.com
 
-pbbin is a simple client for uploading data to pbbin.com (a haste-server).  All you do it pipe data in STDIN:
+pbbin is a simple client for uploading data to https://pbbin.com (a haste-server).  All you do it pipe data in STDIN:
 
 `cat file | pbbin`
 
