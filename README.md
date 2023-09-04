@@ -77,15 +77,15 @@ uploader.upload_path '/tmp/whaaaa' # key
 
 ## Windows Support
 
-If you'd like an alternative on Windows that supports functionality similar to `pbcopy`, check out Aidan Ryan's [WinHaste](https://github.com/ajryan/WinHaste) project.
+If you'd like an alternative on Windows that supports functionality similar to `pbcopy`, check out the pbbin fork of Aidan Ryan's [WinHaste](https://github.com/sfinktah/WinHaste) project.
 
 ## Lightweight Alternative
 
 Han Boetes and @nickthename have contributed a simple shell-script alternative for those not interested in installing a RubyGem:
 
 ``` bash
-haste() {
-    local S="https" H="hastebin.com" P="" L="$1"
+pbbin() {
+    local S="https" H="pastebin.com" P="" L="$1"
     local SHP="${S}://${H}${P}/"
     curl -X POST -s --data-binary @- "${SHP}documents" \
       | awk -F '"' 'b{ b="."b }; {print a$4b}' a="${SHP}" b="${L}"
@@ -97,9 +97,9 @@ Where `S` is the scheme, `H` is the host, `P` is the port, and `L` is the langua
 Usage:
 
 ``` bash
-cat file.txt | haste     # cat file into hate, output url
-haste sh < script.sh     # Same as above, but ensure shell syntax highlighting 
-xsel -b | haste txt      # Output clipboard buffer into haste, ensure no highlighting  
+cat file.txt | pbbin     # cat file into hate, output url
+pbbin sh < script.sh     # Same as above, but ensure shell syntax highlighting 
+xsel -b | pbbin txt      # Output clipboard buffer into haste, ensure no highlighting  
 ```
 
 And a more expansive BASH option by @diethnis can be found at:
