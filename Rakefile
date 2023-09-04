@@ -1,10 +1,10 @@
 require 'rspec/core/rake_task'
-require File.dirname(__FILE__) + '/lib/haste/version'
+require File.dirname(__FILE__) + '/lib/pbbin/version'
 
 RSpec::Core::RakeTask.new(:spec)
 
 task :build => :spec do
-  system "gem build haste.gemspec"
+  system "gem build pbbin.gemspec"
 end
 
 task :release => :build do
@@ -12,5 +12,5 @@ task :release => :build do
   system "git tag v#{Haste::VERSION}"
   system "git push origin --tags"
   # push the gem
-  system "gem push haste-#{Haste::VERSION}.gem"
+  system "gem push pbbin-#{Haste::VERSION}.gem"
 end

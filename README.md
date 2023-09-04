@@ -1,24 +1,22 @@
-# Haste Client
+# Haste Client for pbbin.com
 
-[![Build Status](https://secure.travis-ci.org/seejohnrun/haste-client.png)](http://travis-ci.org/seejohnrun/haste-client)
+pbbin is a simple client for uploading data to pbbin.com (a haste-server).  All you do it pipe data in STDIN:
 
-haste-client is a simple client for uploading data to haste-server.  All you do it pipe data in STDIN:
-
-`cat file | haste`
+`cat file | pbbin`
 
 And once the output makes it to the server, it will print the URL to STDOUT.
 
 This can be really really cool in combination with `pbcopy`, like:
 
-* mac osx: `cat file | haste | pbcopy`
-* linux: `cat file | haste | xsel`
+* mac osx: `cat file | pbbin | pbcopy`
+* linux: `cat file | pbbin | xsel`
 
 after which the contents of `file` will be accessible at a URL which has been copied to your pasteboard.
 
 ## Installation
 
 ``` bash
-gem install haste
+gem install pbbin
 ```
 
 ## Making uploading file contents easier
@@ -27,8 +25,8 @@ If you supply a valid file path as argument #1 to the client, it will be uploade
 
 ``` bash
 # equivalent
-cat file | haste
-haste file
+cat file | pbbin
+pbbin file
 ```
 
 ## You can get the raw version
@@ -36,16 +34,16 @@ haste file
 Want the raw URL returned instead? (a plain-text version)?
 
 ``` bash
-cat file | haste --raw # or
-haste file --raw
+cat file | pbbin --raw # or
+pbbin file --raw
 ```
 
 ## Changing the location of your haste server
 
-By default, haste will point at `https://hastebin.com`.  You can change this by setting the value of `ENV['HASTE_SERVER']` to the URL of your haste server.  You can also use `alias` to make easy shortcuts if you commonly use a few hastes intermingled with each other.  To do that, you'd put something like this into ~.bash_profile:
+By default, pbbin will point at `https://pbbin.com`.  You can change this by setting the value of `ENV['HASTE_SERVER']` to the URL of your haste server.  You can also use `alias` to make easy shortcuts if you commonly use a few hastes intermingled with each other.  To do that, you'd put something like this into ~.bash_profile:
 
 ``` bash
-alias work_haste="HASTE_SERVER=https://something.com haste"
+alias work_haste="HASTE_SERVER=https://something.com pbbin"
 ```
 
 After which you can use `work_haste` to send hastes to that server instead.
@@ -71,7 +69,7 @@ export HASTE_SSL_CERTS="/System/Library/OpenSSL/certs"
 You can also use `Haste` as a library to upload hastes:
 
 ``` ruby
-require 'haste'
+require 'pbbin'
 uploader = Haste::Uploader.new
 uploader.upload_raw 'this is my data' # key
 uploader.upload_path '/tmp/whaaaa' # key

@@ -2,7 +2,7 @@
 
 require 'pathname'
 path = Pathname.new(__FILE__)
-require File.expand_path(File.dirname(path.realpath) + '/../lib/haste')
+require File.expand_path(File.dirname(path.realpath) + '/../lib/pbbin')
 
 cli = Haste::CLI.new
 cli.start

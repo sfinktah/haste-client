@@ -1,18 +1,18 @@
 require 'rubygems'
-require File.dirname(__FILE__) + '/lib/haste/version'
+require File.dirname(__FILE__) + '/lib/pbbin/version'
 
 Gem::Specification.new do |s|
-  s.name = 'haste'
-  s.author = 'John Crepezzi'
+  s.name = 'pbbin'
+  s.author = 'Christopher Anderson, John Crepezzi'
   s.add_development_dependency('rspec')
   s.add_dependency('json')
   s.add_dependency('faraday', '~> 0.9')
-  s.description = 'CLI Haste Client'
+  s.description = 'CLI Haste Client for pbbin.com'
   s.license = 'MIT License'
-  s.homepage = 'https://github.com/seejohnrun/haste-client'
+  s.homepage = 'https://github.com/sfinktah/haste-client'
   s.email = 'john.crepezzi@gmail.com'
-  s.executables = 'haste'
-  s.files = Dir['lib/**/*.rb', 'haste']
+  s.executables = 'pbbin'
+  s.files = Dir['lib/**/*.rb', 'pbbin']
   s.platform = Gem::Platform::RUBY
   s.require_paths = ['lib']
   s.summary = 'Haste Client'
